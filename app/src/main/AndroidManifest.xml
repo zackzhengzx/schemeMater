@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wuwen.zackxd" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".scheme.SchemeActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
+            <!--要想在别的App上能成功调起App，必须添加intent过滤器-->
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <!--下面这几行也必须得设置-->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="xd"
+                    android:path="/result"
+                    android:port="8080"
+                    android:scheme="wuwen" />
+            </intent-filter>
+        </activity>
+
+        <!--<a href="[scheme]://[host]/[path]?[query]"> 唤起应用 </a>-->
+    </application>
+
+</manifest>
